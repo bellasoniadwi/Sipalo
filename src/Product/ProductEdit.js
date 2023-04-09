@@ -12,7 +12,6 @@ const ProductEdit = () => {
             namechange(resp.name);
             kategorichange(resp.kategori);
             hargachange(resp.harga);
-            activechange(resp.isactive);
         }).catch((err) => {
             console.log(err.message);
         })
@@ -22,7 +21,6 @@ const ProductEdit = () => {
     const[name,namechange]=useState("");
     const[kategori,kategorichange]=useState("");
     const[harga,hargachange]=useState("");
-    const[active,activechange]=useState(true);
     const[validation,valchange]=useState(false);
 
 
@@ -30,7 +28,7 @@ const ProductEdit = () => {
 
     const handlesubmit=(e)=>{
       e.preventDefault();
-      const productdata={id,name,kategori,harga,active};
+      const productdata={id,name,kategori,harga};
       
 
       fetch("http://localhost:8000/product/"+productid,{
@@ -89,13 +87,6 @@ const ProductEdit = () => {
                                     </div>
                                 </div>
 
-                                <div className="col-lg-12">
-                                    <div className="form-check">
-                                    <input checked={active} onChange={e=>activechange(e.target.checked)} type="checkbox" className="form-check-input"></input>
-                                        <label  className="form-check-label">Is Active</label>
-                                        
-                                    </div>
-                                </div>
                                 <div className="col-lg-12">
                                     <div className="form-group">
                                        <button className="btn btn-success" type="submit">Save</button>

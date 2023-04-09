@@ -6,6 +6,13 @@
       "email": "bella@gmail.com",
       "telepon": "081358475378",
       "jabatan": "Admin Utama"
+    },
+    {
+      "name": "Anjani",
+      "email": "anjani@gmail.com",
+      "telepon": "085123578000",
+      "jabatan": "Admin",
+      "id": 2
     }
   ],
   "product": [
@@ -13,7 +20,13 @@
       "id": 1,
       "name": "Tenda",
       "kategori": "Camping",
-      "harga": "10000"
+      "harga": "15000"
+    },
+    {
+      "name": "Kompor",
+      "kategori": "Masak",
+      "harga": "8000",
+      "id": 2
     }
   ]
 }

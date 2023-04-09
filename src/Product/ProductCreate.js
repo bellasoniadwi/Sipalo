@@ -7,7 +7,6 @@ const ProductCreate = () => {
     const[name,namechange]=useState("");
     const[kategori,kategorichange]=useState("");
     const[harga,hargachange]=useState("");
-    const[active,activechange]=useState(true);
     const[validation,valchange]=useState(false);
 
 
@@ -15,7 +14,7 @@ const ProductCreate = () => {
 
     const handlesubmit=(e)=>{
       e.preventDefault();
-      const productdata={name,kategori,harga,active};
+      const productdata={name,kategori,harga};
       
 
       fetch("http://localhost:8000/product",{
@@ -75,13 +74,6 @@ const ProductCreate = () => {
                                         </div>
                                     </div>
 
-                                    <div className="col-lg-12">
-                                        <div className="form-check">
-                                        <input checked={active} onChange={e=>activechange(e.target.checked)} type="checkbox" className="form-check-input"></input>
-                                            <label  className="form-check-label">Is Active</label>
-                                            
-                                        </div>
-                                    </div>
                                     <div className="col-lg-12">
                                         <div className="form-group">
                                            <button className="btn btn-success" type="submit">Save</button>

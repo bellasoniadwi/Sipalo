@@ -15,7 +15,6 @@ const EmpEdit = () => {
             emailchange(resp.email);
             teleponchange(resp.telepon);
             jabatanchange(resp.jabatan);
-            activechange(resp.isactive);
         }).catch((err) => {
             console.log(err.message);
         })
@@ -34,7 +33,7 @@ const EmpEdit = () => {
 
     const handlesubmit=(e)=>{
       e.preventDefault();
-      const empdata={id,name,email,telepon,jabatan,active};
+      const empdata={id,name,email,telepon,jabatan};
       
 
       fetch("http://localhost:8000/employee/"+empid,{
@@ -100,13 +99,6 @@ const EmpEdit = () => {
                                     </div>
                                 </div>
 
-                                <div className="col-lg-12">
-                                    <div className="form-check">
-                                    <input checked={active} onChange={e=>activechange(e.target.checked)} type="checkbox" className="form-check-input"></input>
-                                        <label  className="form-check-label">Is Active</label>
-                                        
-                                    </div>
-                                </div>
                                 <div className="col-lg-12">
                                     <div className="form-group">
                                        <button className="btn btn-success" type="submit">Save</button>

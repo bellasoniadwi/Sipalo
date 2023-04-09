@@ -8,7 +8,6 @@ const EmpCreate = () => {
     const[email,emailchange]=useState("");
     const[telepon,teleponchange]=useState("");
     const[jabatan,jabatanchange]=useState("");
-    const[active,activechange]=useState(true);
     const[validation,valchange]=useState(false);
 
 
@@ -16,7 +15,7 @@ const EmpCreate = () => {
 
     const handlesubmit=(e)=>{
       e.preventDefault();
-      const empdata={name,email,telepon,jabatan,active};
+      const empdata={name,email,telepon,jabatan};
       
 
       fetch("http://localhost:8000/employee",{
@@ -83,13 +82,6 @@ const EmpCreate = () => {
                                         </div>
                                     </div>
 
-                                    <div className="col-lg-12">
-                                        <div className="form-check">
-                                        <input checked={active} onChange={e=>activechange(e.target.checked)} type="checkbox" className="form-check-input"></input>
-                                            <label  className="form-check-label">Is Active</label>
-                                            
-                                        </div>
-                                    </div>
                                     <div className="col-lg-12">
                                         <div className="form-group">
                                            <button className="btn btn-success" type="submit">Save</button>
