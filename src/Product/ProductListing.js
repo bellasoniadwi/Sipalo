@@ -37,7 +37,7 @@ const ProductListing = () => {
         <div className="container">
             <div className="card">
                 <div className="card-title">
-                    <h2>Product Listing</h2>
+                    <h2>List Product</h2>
                 </div>
                 <div className="card-body">
                     <div className="divbtn">
