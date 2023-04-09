@@ -1,0 +1,19 @@
+{
+  "employee": [
+    {
+      "id": 1,
+      "name": "Bella Sonia",
+      "email": "bella@gmail.com",
+      "telepon": "081358475378",
+      "jabatan": "Admin Utama"
+    }
+  ],
+  "product": [
+    {
+      "id": 1,
+      "name": "Tenda",
+      "kategori": "Camping",
+      "harga": "10000"
+    }
+  ]
+}
