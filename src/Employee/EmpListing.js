@@ -37,50 +37,72 @@ const EmpListing = () => {
         })
     }, [])
     return (
-        <div className="container">
-            <div className="card">
-                <div className="card-title">
-                    <h2>List Employee</h2>
-                </div>
-                <div className="card-body">
-                    <div className="divbtn">
-                        <Link to="/employee/create" className="btn btn-success">Add New (+)</Link>
-                    </div>
-                    <table className="table table-bordered">
-                        <thead className="bg-dark text-white">
-                            <tr>
-                                <td>ID</td>
-                                <td>Name</td>
-                                <td>Email</td>
-                                <td>Telepon</td>
-                                <td>Jabatan</td>
-                                <td>Action</td>
-                            </tr>
-                        </thead>
-                        <tbody>
-
-                            {empdata &&
-                                empdata.map(item => (
-                                    <tr key={item.id}>
-                                        <td>{item.id}</td>
-                                        <td>{item.name}</td>
-                                        <td>{item.email}</td>
-                                        <td>{item.telepon}</td>
-                                        <td>{item.jabatan}</td>
-                                        <td><a onClick={() => { LoadEdit(item.id) }} className="btn btn-success">Edit</a>
-                                            <a onClick={() => { Removefunction(item.id) }} className="btn btn-danger">Remove</a>
-                                            <a onClick={() => { LoadDetail(item.id) }} className="btn btn-primary">Details</a>
-                                        </td>
-                                    </tr>
-                                ))
-                            }
-
-                        </tbody>
-
-                    </table>
-                </div>
+        <div className="row">
+      <div className="col-12 col-lg-12 col-xxl-12 d-flex">
+        <div className="card flex-fill">
+          <div className="card-header">
+            <h5 className="card-title mb-0">List Employee</h5>
+          </div>
+          <div class="card-body">
+            <div class="mb-3">
+              <Link to="/employee/create" className="btn btn-success">
+                +
+              </Link>
             </div>
+          </div>
+          <table className="table table-hover my-0">
+            <thead>
+              <tr>
+              <th>ID Employee</th>
+                <th>Nama Karyawan</th>
+                <th className="d-none d-xl-table-cell">Email</th>
+                <th className="d-none d-xl-table-cell">Telepon</th>
+                <th className="d-none d-xl-table-cell">Jabatan</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {empdata &&
+                empdata.map((item) => (
+                  <tr key={item.id}>
+                    <td>{item.id}</td>
+                    <td>{item.name}</td>
+                    <td>{item.email}</td>
+                    <td>{item.telepon}</td>
+                    <td>{item.jabatan}</td>
+                    <td>
+                      <a
+                        onClick={() => {
+                          LoadEdit(item.id);
+                        }}
+                        className="btn btn-warning"
+                      >
+                        Edit
+                      </a>
+                      <a
+                        onClick={() => {
+                          Removefunction(item.id);
+                        }}
+                        className="btn btn-danger"
+                      >
+                        Remove
+                      </a>
+                      <a
+                        onClick={() => {
+                          LoadDetail(item.id);
+                        }}
+                        className="btn btn-primary"
+                      >
+                        Details
+                      </a>
+                    </td>
+                  </tr>
+                ))}
+            </tbody>
+          </table>
         </div>
+      </div>
+    </div>
     );
 }
 

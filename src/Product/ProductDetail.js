@@ -19,31 +19,45 @@ const ProductDetail = () => {
       });
   }, []);
   return (
-    <div>
-      <div className="container">
-        <div className="card row" style={{ textAlign: "left" }}>
-          <div className="card-title">
-            <h2>Product Create</h2>
-          </div>
-          <div className="card-body"></div>
+    <div class="col-sm-10 col-md-8 col-lg-6 mx-auto d-table h-100">
+      <div class="d-table-cell align-middle">
+        <div class="text-center mt-4">
+          <h1 class="h2">Detail Product</h1>
+          <p class="lead"></p>
+        </div>
 
-          {productdata && (
-            <div>
-              <h2>
-                The Product name is : <b>{productdata.name}</b> ({productdata.id})
-              </h2>
-              <h3>Detail product</h3>
-              <h5>Kategori is : {productdata.kategori}</h5>
-              <h5>Harga is : {productdata.harga}</h5>
-              <Link className="btn btn-danger" to="/product">
-                Back to Listing
-              </Link>
+        <div class="card">
+          <div class="card-body">
+            <div class="m-sm-4">
+              <form>
+                {productdata && (
+                  <div>
+                    <div class="mb-3">
+                  <label class="form-label">Nama : {productdata.name}</label>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">
+                    Kategori : {productdata.kategori}
+                  </label>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">
+                    Harga : {productdata.harga}
+                  </label>
+                </div>
+                <div class="text-center mt-3">
+                  <a href="/product" class="btn btn-lg btn-primary">
+                    Back to List
+                  </a>
+                </div>
+                  </div>
+                )}
+                
+              </form>
             </div>
-          )}
+          </div>
         </div>
       </div>
-      {/* </div>
-            </div> */}
     </div>
   );
 };

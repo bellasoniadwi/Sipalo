@@ -17,31 +17,51 @@ const EmpDetail = () => {
         })
     }, []);
     return (
-        <div>
+        <div class="col-sm-10 col-md-8 col-lg-6 mx-auto d-table h-100">
+      <div class="d-table-cell align-middle">
+        <div class="text-center mt-4">
+          <h1 class="h2">Detail Employee</h1>
+          <p class="lead"></p>
+        </div>
 
-               <div className="container">
-                
-            <div className="card row" style={{ "textAlign": "left" }}>
-                <div className="card-title">
-                    <h2>Employee Detail</h2>
+        <div class="card">
+          <div class="card-body">
+            <div class="m-sm-4">
+              <form>
+                {empdata && (
+                  <div>
+                    <div class="mb-3">
+                  <label class="form-label">Nama : {empdata.name}</label>
                 </div>
-                <div className="card-body"></div>
-
-                {empdata &&
-                    <div>
-                        <h2>The Employee name is : <b>{empdata.name}</b>  ({empdata.id})</h2>
-                        <h3>Contact Details</h3>
-                        <h5>Email is : {empdata.email}</h5>
-                        <h5>Telepon is : {empdata.telepon}</h5>
-                        <h5>Jabatan is : {empdata.jabatan}</h5>
-                        <Link className="btn btn-danger" to="/">Back to Listing</Link>
-                    </div>
-                }
+                <div class="mb-3">
+                  <label class="form-label">
+                    Email : {empdata.email}
+                  </label>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">
+                    Telepon : {empdata.telepon}
+                  </label>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">
+                    Jabatan : {empdata.jabatan}
+                  </label>
+                </div>
+                <div class="text-center mt-3">
+                  <a href="/employee" class="btn btn-lg btn-primary">
+                    Back to List
+                  </a>
+                </div>
+                  </div>
+                )}
+                
+              </form>
             </div>
-            </div>
-            {/* </div>
-            </div> */}
-        </div >
+          </div>
+        </div>
+      </div>
+    </div>
     );
 }
 
