@@ -3,116 +3,28 @@ import React from "react";
 function Dashboard() {
   return (
     <>
-      <h1 className="h3 mb-3">
-        Dashboard
-      </h1>
+      <h1 className="h3 mb-3">Selamat Datang !</h1>
 
       <div className="row">
-        <div className="col-xl-12 col-xxl-12 d-flex">
-          <div className="w-100">
-            <div className="row">
-              <div className="col-sm-6">
-                <div className="card">
-                  <div className="card-body">
-                    <div className="row">
-                      <div className="col mt-0">
-                        <h5 className="card-title">Employee</h5>
-                      </div>
-
-                      <div className="col-auto">
-                        <div className="stat text-primary">
-                          <i className="align-middle" data-feather="truck"></i>
-                        </div>
-                      </div>
-                    </div>
-                    <h1 className="mt-1 mb-3">2.382</h1>
-                    <div className="mb-0">
-                      <span className="text-danger">
-                        {" "}
-                        <i className="mdi mdi-arrow-bottom-right"></i> -3.65%{" "}
-                      </span>
-                      <span className="text-muted">Since last week</span>
-                    </div>
-                  </div>
-                </div>
-                <div className="card">
-                  <div className="card-body">
-                    <div className="row">
-                      <div className="col mt-0">
-                        <h5 className="card-title">Product</h5>
-                      </div>
-
-                      <div className="col-auto">
-                        <div className="stat text-primary">
-                          <i className="align-middle" data-feather="users"></i>
-                        </div>
-                      </div>
-                    </div>
-                    <h1 className="mt-1 mb-3">14.212</h1>
-                    <div className="mb-0">
-                      <span className="text-success">
-                        {" "}
-                        <i className="mdi mdi-arrow-bottom-right"></i> 5.25%{" "}
-                      </span>
-                      <span className="text-muted">Since last week</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="col-sm-6">
-                <div className="card">
-                  <div className="card-body">
-                    <div className="row">
-                      <div className="col mt-0">
-                        <h5 className="card-title">Member</h5>
-                      </div>
-
-                      <div className="col-auto">
-                        <div className="stat text-primary">
-                          <i
-                            className="align-middle"
-                            data-feather="dollar-sign"
-                          ></i>
-                        </div>
-                      </div>
-                    </div>
-                    <h1 className="mt-1 mb-3">$21.300</h1>
-                    <div className="mb-0">
-                      <span className="text-success">
-                        {" "}
-                        <i className="mdi mdi-arrow-bottom-right"></i> 6.65%{" "}
-                      </span>
-                      <span className="text-muted">Since last week</span>
-                    </div>
-                  </div>
-                </div>
-                <div className="card">
-                  <div className="card-body">
-                    <div className="row">
-                      <div className="col mt-0">
-                        <h5 className="card-title">Transaction</h5>
-                      </div>
-
-                      <div className="col-auto">
-                        <div className="stat text-primary">
-                          <i
-                            className="align-middle"
-                            data-feather="shopping-cart"
-                          ></i>
-                        </div>
-                      </div>
-                    </div>
-                    <h1 className="mt-1 mb-3">64</h1>
-                    <div className="mb-0">
-                      <span className="text-danger">
-                        {" "}
-                        <i className="mdi mdi-arrow-bottom-right"></i> -2.25%{" "}
-                      </span>
-                      <span className="text-muted">Since last week</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
+        <div className="col-12 col-md-12">
+          <div className="card">
+            <img
+              className="card-img-top"
+              src="adminkit/img/photos/background.jpg"
+              alt="Unsplash"
+            />
+            <div className="card-body">
+              <h5 className="card-text">
+                Bolang Gunung salah satu persewaan perlengkapan pendakian dan
+                camping yang lengkap di Malang yang berdiri sejak tahun 2022.
+                Dengan harga yang sangat murah, barang kami memiliki kualitas
+                yang sangat bagus dan terawat sesuai standarisasi untuk
+                persewaan, itu semua demi kenyamanan dan keamanan anda. Jadi
+                bagi anda yang menghabiskan waktu liburan anda untuk pendakian
+                dan bagi anda yang bingung ingin menyewa perlengkapan camping,
+                kami adalah solusi tepat untuk anda, dengan harga yang
+                terjangkau dan mengutamakan keselamatan.
+              </h5>
             </div>
           </div>
         </div>

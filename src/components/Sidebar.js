@@ -4,7 +4,7 @@ function Sidebar() {
   return (
     <nav id="sidebar" className="sidebar js-sidebar">
       <div className="sidebar-content js-simplebar">
-        <a className="sidebar-brand" href="index.html">
+        <a className="sidebar-brand" href="#">
           <span className="align-middle">Bolang Gunung</span>
         </a>
 
