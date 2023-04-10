@@ -44,28 +44,28 @@ const ProductEdit = () => {
 
     }
     return ( 
-        <div class="container d-flex flex-column">
-			<div class="row vh-30">
-        <div class="col-12 col-lg-12">
+        <div className="container d-flex flex-column">
+			<div className="row vh-30">
+        <div className="col-12 col-lg-12">
         <form className="container" onSubmit={handlesubmit}>
-          <div class="card">
-            <div class="card-header">
-              <h5 class="card-title mb-0">Edit Product</h5>
+          <div className="card">
+            <div className="card-header">
+              <h5 className="card-title mb-0">Edit Product</h5>
             </div>
-            <div class="card-body">
+            <div className="card-body">
               <label>Name</label>
               <input value={name} onChange={e=>namechange(e.target.value)} className="form-control"></input>
             </div>
-            <div class="card-body">
+            <div className="card-body">
               <label>Kategori</label>
               <input value={kategori} onChange={e=>kategorichange(e.target.value)} className="form-control"></input>
             </div>
-            <div class="card-body">
+            <div className="card-body">
               <label>Harga</label>
               <input value={harga} onChange={e=>hargachange(e.target.value)} className="form-control"></input>
           </div>
-          <div class="card-body">
-            <div class="text-center mb-3">
+          <div className="card-body">
+            <div className="text-center mb-3">
             <button className="btn btn-success" type="submit">Save</button>
             <Link to="/product" className="btn btn-danger">Back</Link>
             </div>

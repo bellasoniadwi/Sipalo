@@ -30,15 +30,15 @@ const EmpCreate = () => {
   };
 
   return (
-    <div class="container d-flex flex-column">
-			<div class="row vh-30">
-        <div class="col-12 col-lg-12">
+    <div className="container d-flex flex-column">
+			<div className="row vh-30">
+        <div className="col-12 col-lg-12">
           <form className="container" onSubmit={handlesubmit}>
-            <div class="card">
-              <div class="card-header">
-                <h5 class="card-title mb-0">Create Employee</h5>
+            <div className="card">
+              <div className="card-header">
+                <h5 className="card-title mb-0">Create Employee</h5>
               </div>
-              <div class="card-body">
+              <div className="card-body">
                 <label>Name</label>
                 <input
                   value={name}
@@ -46,7 +46,7 @@ const EmpCreate = () => {
                   className="form-control"
                 ></input>
               </div>
-              <div class="card-body">
+              <div className="card-body">
                 <label>Email</label>
                 <input
                   value={email}
@@ -54,7 +54,7 @@ const EmpCreate = () => {
                   className="form-control"
                 ></input>
               </div>
-              <div class="card-body">
+              <div className="card-body">
                 <label>Telepon</label>
                 <input
                   value={telepon}
@@ -62,7 +62,7 @@ const EmpCreate = () => {
                   className="form-control"
                 ></input>
               </div>
-              <div class="card-body">
+              <div className="card-body">
                 <label>Jabatan</label>
                 <input
                   value={jabatan}
@@ -70,8 +70,8 @@ const EmpCreate = () => {
                   className="form-control"
                 ></input>
               </div>
-              <div class="card-body">
-                <div class="text-center mb-3">
+              <div className="card-body">
+                <div className="text-center mb-3">
                   <button className="btn btn-success" type="submit">
                     Save
                   </button>

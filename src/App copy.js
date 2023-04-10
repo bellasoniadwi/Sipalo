@@ -11,17 +11,17 @@ import ProductEdit from "./Product/ProductEdit";
 
 function App() {
   return (
-    <div class="hero_area">
+    <div className="hero_area">
       {/* header section strats */}
-      <header class="header_section">
-        <div class="container-fluid">
-          <nav class="navbar navbar-expand-lg custom_nav-container ">
-            <a class="navbar-brand" href="index.html">
+      <header className="header_section">
+        <div className="container-fluid">
+          <nav className="navbar navbar-expand-lg custom_nav-container ">
+            <a className="navbar-brand" href="index.html">
               <h3>Bolang</h3>
               <span> gunung</span>
             </a>
             <button
-              class="navbar-toggler"
+              className="navbar-toggler"
               type="button"
               data-toggle="collapse"
               data-target="#navbarSupportedContent"
@@ -29,39 +29,39 @@ function App() {
               aria-expanded="false"
               aria-label="Toggle navigation"
             >
-              <span class="navbar-toggler-icon"></span>
+              <span className="navbar-toggler-icon"></span>
             </button>
 
             <div
-              class="collapse navbar-collapse ml-auto"
+              className="collapse navbar-collapse ml-auto"
               id="navbarSupportedContent"
             >
-              <ul class="navbar-nav  ml-auto">
-                <li class="nav-item active">
-                  <a class="nav-link" href="/">
-                    Home <span class="sr-only">(current)</span>
+              <ul className="navbar-nav  ml-auto">
+                <li className="nav-item active">
+                  <a className="nav-link" href="/">
+                    Home <span className="sr-only">(current)</span>
                   </a>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="/product">
+                <li className="nav-item">
+                  <a className="nav-link" href="/product">
                     {" "}
                     Product{" "}
                   </a>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="/employee">
+                <li className="nav-item">
+                  <a className="nav-link" href="/employee">
                     {" "}
                     Employee{" "}
                   </a>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="event.html">
+                <li className="nav-item">
+                  <a className="nav-link" href="event.html">
                     {" "}
                     Member{" "}
                   </a>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="contact.html">
+                <li className="nav-item">
+                  <a className="nav-link" href="contact.html">
                     Transaction
                   </a>
                 </li>
