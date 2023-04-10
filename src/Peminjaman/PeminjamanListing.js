@@ -45,8 +45,8 @@ const PeminjamanListing = () => {
           <div className="card-header">
             <h5 className="card-title mb-0">List Peminjaman</h5>
           </div>
-          <div class="card-body">
-            <div class="mb-3">
+          <div className="card-body">
+            <div className="mb-3">
               <Link to="/peminjaman/create" className="btn btn-success">
                 +
               </Link>

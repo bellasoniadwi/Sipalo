@@ -43,8 +43,8 @@ const MemberListing = () => {
           <div className="card-header">
             <h5 className="card-title mb-0">List Member</h5>
           </div>
-          <div class="card-body">
-            <div class="mb-3">
+          <div className="card-body">
+            <div className="mb-3">
               <Link to="/member/create" className="btn btn-success">
                 +
               </Link>
