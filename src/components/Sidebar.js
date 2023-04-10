@@ -32,14 +32,14 @@ function Sidebar() {
           </li>
 
           <li className="sidebar-item">
-            <a className="sidebar-link" href="pages-sign-up.html">
+            <a className="sidebar-link" href="/member">
               <i className="align-middle" data-feather="user-plus"></i>{" "}
               <span className="align-middle">Member</span>
             </a>
           </li>
 
           <li className="sidebar-item">
-            <a className="sidebar-link" href="pages-blank.html">
+            <a className="sidebar-link" href="/peminjaman">
               <i className="align-middle" data-feather="book"></i>{" "}
               <span className="align-middle">Peminjaman</span>
             </a>

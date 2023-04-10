@@ -28,5 +28,35 @@
       "harga": "8000",
       "id": 2
     }
+  ],
+  "member": [
+    {
+      "id": 1,
+      "name": "Iqbal Guanna",
+      "alamat": "Surabaya",
+      "telepon": "085123578000",
+      "usia": "19"
+    },
+    {
+      "id": 2,
+      "name": "Natasha Kay",
+      "alamat": "Malang",
+      "telepon": "085123578111",
+      "usia": "17"
+    }
+  ],
+  "peminjaman": [
+    {
+      "id": 1,
+      "name": "Iqbal Guanna",
+      "product": "Tenda",
+      "total": "80000"
+    },
+    {
+      "id": 2,
+      "name": "Natasha Kay",
+      "product": "Kompor",
+      "total": "90000"
+    }
   ]
 }

@@ -1,20 +1,20 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 
-const EmpEdit = () => {
-    const { empid } = useParams();
+const MemberEdit = () => {
+    const { memberid } = useParams();
 
-    //const [empdata, empdatachange] = useState({});
+    //const [memberdata, memberdatachange] = useState({});
 
     useEffect(() => {
-        fetch("http://localhost:8000/employee/" + empid).then((res) => {
+        fetch("http://localhost:8000/member/" + memberid).then((res) => {
             return res.json();
         }).then((resp) => {
             idchange(resp.id);
             namechange(resp.name);
-            emailchange(resp.email);
+            alamatchange(resp.alamat);
             teleponchange(resp.telepon);
-            jabatanchange(resp.jabatan);
+            usiachange(resp.usia);
         }).catch((err) => {
             console.log(err.message);
         })
@@ -22,10 +22,9 @@ const EmpEdit = () => {
 
     const[id,idchange]=useState("");
     const[name,namechange]=useState("");
-    const[email,emailchange]=useState("");
+    const[alamat,alamatchange]=useState("");
     const[telepon,teleponchange]=useState("");
-    const[jabatan,jabatanchange]=useState("");
-    const[active,activechange]=useState(true);
+    const[usia,usiachange]=useState("");
     const[validation,valchange]=useState(false);
 
 
@@ -33,16 +32,16 @@ const EmpEdit = () => {
 
     const handlesubmit=(e)=>{
       e.preventDefault();
-      const empdata={id,name,email,telepon,jabatan};
+      const memberdata={id,name,alamat,telepon,usia};
       
 
-      fetch("http://localhost:8000/employee/"+empid,{
+      fetch("http://localhost:8000/member/"+memberid,{
         method:"PUT",
         headers:{"content-type":"application/json"},
-        body:JSON.stringify(empdata)
+        body:JSON.stringify(memberdata)
       }).then((res)=>{
         alert('Saved successfully.')
-        navigate('/employee');
+        navigate('/member');
       }).catch((err)=>{
         console.log(err.message)
       })
@@ -55,7 +54,7 @@ const EmpEdit = () => {
           <form className="container" onSubmit={handlesubmit}>
             <div className="card">
               <div className="card-header">
-                <h5 className="card-title mb-0">Create Employee</h5>
+                <h5 className="card-title mb-0">Create Member</h5>
               </div>
               <div className="card-body">
                 <label>Name</label>
@@ -66,10 +65,10 @@ const EmpEdit = () => {
                 ></input>
               </div>
               <div className="card-body">
-                <label>Email</label>
+                <label>Alamat</label>
                 <input
-                  value={email}
-                  onChange={(e) => emailchange(e.target.value)}
+                  value={alamat}
+                  onChange={(e) => alamatchange(e.target.value)}
                   className="form-control"
                 ></input>
               </div>
@@ -82,10 +81,10 @@ const EmpEdit = () => {
                 ></input>
               </div>
               <div className="card-body">
-                <label>Jabatan</label>
+                <label>Usia</label>
                 <input
-                  value={jabatan}
-                  onChange={(e) => jabatanchange(e.target.value)}
+                  value={usia}
+                  onChange={(e) => usiachange(e.target.value)}
                   className="form-control"
                 ></input>
               </div>
@@ -94,7 +93,7 @@ const EmpEdit = () => {
                   <button className="btn btn-success" type="submit">
                     Save
                   </button>
-                  <Link to="/employee" className="btn btn-danger">
+                  <Link to="/member" className="btn btn-danger">
                     Back
                   </Link>
                 </div>
@@ -107,4 +106,4 @@ const EmpEdit = () => {
     );
 }
  
-export default EmpEdit;
+export default MemberEdit;

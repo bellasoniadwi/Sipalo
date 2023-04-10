@@ -1,27 +1,27 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-const ProductCreate = () => {
+const PeminjamanCreate = () => {
   const [id, idchange] = useState("");
   const [name, namechange] = useState("");
-  const [kategori, kategorichange] = useState("");
-  const [harga, hargachange] = useState("");
+  const [product, productchange] = useState("");
+  const [total, totalchange] = useState("");
   const [validation, valchange] = useState(false);
 
   const navigate = useNavigate();
 
   const handlesubmit = (e) => {
     e.preventDefault();
-    const productdata = { name, kategori, harga };
+    const peminjamandata = { name, product, total };
 
-    fetch("http://localhost:8000/product", {
+    fetch("http://localhost:8000/peminjaman", {
       method: "POST",
       headers: { "content-type": "application/json" },
-      body: JSON.stringify(productdata),
+      body: JSON.stringify(peminjamandata),
     })
       .then((res) => {
         alert("Saved successfully.");
-        navigate("/product");
+        navigate("/peminjaman");
       })
       .catch((err) => {
         console.log(err.message);
@@ -35,24 +35,24 @@ const ProductCreate = () => {
         <form className="container" onSubmit={handlesubmit}>
           <div className="card">
             <div className="card-header">
-              <h5 className="card-title mb-0">Create Product</h5>
+              <h5 className="card-title mb-0">Create Peminjaman</h5>
             </div>
             <div className="card-body">
               <label>Name</label>
               <input value={name} onChange={e=>namechange(e.target.value)} className="form-control"></input>
             </div>
             <div className="card-body">
-              <label>Kategori</label>
-              <input value={kategori} onChange={e=>kategorichange(e.target.value)} className="form-control"></input>
+              <label>Barang yang Dipinjam</label>
+              <input value={product} onChange={e=>productchange(e.target.value)} className="form-control"></input>
             </div>
             <div className="card-body">
-              <label>Harga</label>
-              <input value={harga} onChange={e=>hargachange(e.target.value)} className="form-control"></input>
+              <label>Total Harga</label>
+              <input value={total} onChange={e=>totalchange(e.target.value)} className="form-control"></input>
           </div>
           <div className="card-body">
             <div className="text-center mb-3">
             <button className="btn btn-success" type="submit">Save</button>
-            <Link to="/product" className="btn btn-danger">Back</Link>
+            <Link to="/peminjaman" className="btn btn-danger">Back</Link>
             </div>
           </div>
         </div>
@@ -63,4 +63,4 @@ const ProductCreate = () => {
   );
 };
 
-export default ProductCreate;
+export default PeminjamanCreate;

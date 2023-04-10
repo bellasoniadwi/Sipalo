@@ -7,6 +7,14 @@ import EmpListing from "./Employee/EmpListing";
 import EmpCreate from "./Employee/EmpCreate";
 import EmpDetail from "./Employee/EmpDetail";
 import EmpEdit from "./Employee/EmpEdit";
+import MemberListing from "./Member/MemberListing";
+import MemberCreate from "./Member/MemberCreate";
+import MemberDetail from "./Member/MemberDetail";
+import MemberEdit from "./Member/MemberEdit";
+import PeminjamanListing from "./Peminjaman/PeminjamanListing";
+import PeminjamanCreate from "./Peminjaman/PeminjamanCreate";
+import PeminjamanDetail from "./Peminjaman/PeminjamanDetail";
+import PeminjamanEdit from "./Peminjaman/PeminjamanEdit";
 import ProductListing from "./Product/ProductListing";
 import ProductCreate from "./Product/ProductCreate";
 import ProductDetail from "./Product/ProductDetail";
@@ -35,6 +43,16 @@ function App(){
                         <Route path="/employee/create" element={<EmpCreate />}></Route>
                         <Route path="/employee/detail/:empid" element={<EmpDetail />}></Route>
                         <Route path="/employee/edit/:empid" element={<EmpEdit />}></Route>
+
+                        <Route path="/member" element={<MemberListing />}></Route>
+                        <Route path="/member/create" element={<MemberCreate />}></Route>
+                        <Route path="/member/detail/:memberid" element={<MemberDetail />}></Route>
+                        <Route path="/member/edit/:memberid" element={<MemberEdit />}></Route>
+
+                        <Route path="/peminjaman" element={<PeminjamanListing />}></Route>
+                        <Route path="/peminjaman/create" element={<PeminjamanCreate />}></Route>
+                        <Route path="/peminjaman/detail/:peminjamanid" element={<PeminjamanDetail />}></Route>
+                        <Route path="/peminjaman/edit/:peminjamanid" element={<PeminjamanEdit />}></Route>
                         </Routes>
                     </BrowserRouter>
                 </div>

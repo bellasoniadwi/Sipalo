@@ -1,28 +1,28 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-const EmpCreate = () => {
+const MemberCreate = () => {
   const [id, idchange] = useState("");
   const [name, namechange] = useState("");
-  const [email, emailchange] = useState("");
+  const [alamat, alamatchange] = useState("");
   const [telepon, teleponchange] = useState("");
-  const [jabatan, jabatanchange] = useState("");
+  const [usia, usiachange] = useState("");
   const [validation, valchange] = useState(false);
 
   const navigate = useNavigate();
 
   const handlesubmit = (e) => {
     e.preventDefault();
-    const empdata = { name, email, telepon, jabatan };
+    const memberdata = { name, alamat, telepon, usia };
 
-    fetch("http://localhost:8000/employee", {
+    fetch("http://localhost:8000/member", {
       method: "POST",
       headers: { "content-type": "application/json" },
-      body: JSON.stringify(empdata),
+      body: JSON.stringify(memberdata),
     })
       .then((res) => {
         alert("Saved successfully.");
-        navigate("/employee");
+        navigate("/member");
       })
       .catch((err) => {
         console.log(err.message);
@@ -36,7 +36,7 @@ const EmpCreate = () => {
           <form className="container" onSubmit={handlesubmit}>
             <div className="card">
               <div className="card-header">
-                <h5 className="card-title mb-0">Create Employee</h5>
+                <h5 className="card-title mb-0">Create Member</h5>
               </div>
               <div className="card-body">
                 <label>Name</label>
@@ -47,10 +47,10 @@ const EmpCreate = () => {
                 ></input>
               </div>
               <div className="card-body">
-                <label>Email</label>
+                <label>Alamat</label>
                 <input
-                  value={email}
-                  onChange={(e) => emailchange(e.target.value)}
+                  value={alamat}
+                  onChange={(e) => alamatchange(e.target.value)}
                   className="form-control"
                 ></input>
               </div>
@@ -63,10 +63,10 @@ const EmpCreate = () => {
                 ></input>
               </div>
               <div className="card-body">
-                <label>Jabatan</label>
+                <label>Usia</label>
                 <input
-                  value={jabatan}
-                  onChange={(e) => jabatanchange(e.target.value)}
+                  value={usia}
+                  onChange={(e) => usiachange(e.target.value)}
                   className="form-control"
                 ></input>
               </div>
@@ -75,7 +75,7 @@ const EmpCreate = () => {
                   <button className="btn btn-success" type="submit">
                     Save
                   </button>
-                  <Link to="/employee" className="btn btn-danger">
+                  <Link to="/member" className="btn btn-danger">
                     Back
                   </Link>
                 </div>
@@ -88,4 +88,4 @@ const EmpCreate = () => {
   );
 };
 
-export default EmpCreate;
+export default MemberCreate;
