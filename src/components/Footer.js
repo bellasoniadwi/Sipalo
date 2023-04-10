@@ -7,22 +7,19 @@ function Footer(){
 					<div className="row text-muted">
 						<div className="col-6 text-start">
 							<p className="mb-0">
-								<a className="text-muted" href="https://adminkit.io/" target="_blank"><strong>AdminKit</strong></a> - <a className="text-muted" href="https://adminkit.io/" target="_blank"><strong>Bootstrap Admin Template</strong></a>								&copy;
+								<a className="text-muted" href="https://adminkit.io/" target="_blank"><strong>Template by AdminKit</strong></a>
 							</p>
 						</div>
 						<div className="col-6 text-end">
 							<ul className="list-inline">
 								<li className="list-inline-item">
-									<a className="text-muted" href="https://adminkit.io/" target="_blank">Support</a>
+									Framework-based Programming by
 								</li>
 								<li className="list-inline-item">
-									<a className="text-muted" href="https://adminkit.io/" target="_blank">Help Center</a>
+									<a className="text-muted" href="https://www.instagram.com/anjani.dwilestari" target="_blank">Anjani</a> - 
 								</li>
 								<li className="list-inline-item">
-									<a className="text-muted" href="https://adminkit.io/" target="_blank">Privacy</a>
-								</li>
-								<li className="list-inline-item">
-									<a className="text-muted" href="https://adminkit.io/" target="_blank">Terms</a>
+									<a className="text-muted" href="https://www.instagram.com/bellasoniaa_" target="_blank">Bella</a>
 								</li>
 							</ul>
 						</div>

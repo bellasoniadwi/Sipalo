@@ -16,7 +16,7 @@ function Dashboard() {
                   <div className="card-body">
                     <div className="row">
                       <div className="col mt-0">
-                        <h5 className="card-title">Sales</h5>
+                        <h5 className="card-title">Employee</h5>
                       </div>
 
                       <div className="col-auto">
@@ -39,7 +39,7 @@ function Dashboard() {
                   <div className="card-body">
                     <div className="row">
                       <div className="col mt-0">
-                        <h5 className="card-title">Visitors</h5>
+                        <h5 className="card-title">Product</h5>
                       </div>
 
                       <div className="col-auto">
@@ -64,7 +64,7 @@ function Dashboard() {
                   <div className="card-body">
                     <div className="row">
                       <div className="col mt-0">
-                        <h5 className="card-title">Earnings</h5>
+                        <h5 className="card-title">Member</h5>
                       </div>
 
                       <div className="col-auto">
@@ -90,7 +90,7 @@ function Dashboard() {
                   <div className="card-body">
                     <div className="row">
                       <div className="col mt-0">
-                        <h5 className="card-title">Orders</h5>
+                        <h5 className="card-title">Transaction</h5>
                       </div>
 
                       <div className="col-auto">

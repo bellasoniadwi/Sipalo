@@ -207,7 +207,7 @@ function Navbar() {
                 className="avatar img-fluid rounded me-1"
                 alt="Charles Hall"
               />{" "}
-              <span className="text-dark">Charles Hall</span>
+              <span className="text-dark">Anjani - Bella</span>
             </a>
             <div className="dropdown-menu dropdown-menu-end">
               <a className="dropdown-item" href="pages-profile.html">
