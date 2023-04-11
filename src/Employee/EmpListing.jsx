@@ -1,53 +1,51 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-const PeminjamanListing = () => {
-  const [peminjamandata, peminjamandatachange] = useState(null);
-  const navigate = useNavigate();
+const EmpListing = () => {
+    const [empdata, empdatachange] = useState(null);
+    const navigate = useNavigate();
 
-  const LoadDetail = (id) => {
-    navigate("/peminjaman/detail/" + id);
-  };
-  const LoadEdit = (id) => {
-    navigate("/peminjaman/edit/" + id);
-  };
-  const Removefunction = (id) => {
-    if (window.confirm("Do you want to remove?")) {
-      fetch("http://localhost:8000/peminjaman/" + id, {
-        method: "DELETE",
-      })
-        .then((res) => {
-          alert("Removed successfully.");
-          window.location.reload();
-        })
-        .catch((err) => {
-          console.log(err.message);
-        });
+    const LoadDetail = (id) => {
+        navigate("/employee/detail/" + id);
     }
-  };
+    const LoadEdit = (id) => {
+        navigate("/employee/edit/" + id);
+    }
+    const Removefunction = (id) => {
+        if (window.confirm('Do you want to remove?')) {
+            fetch("http://localhost:8000/employee/" + id, {
+                method: "DELETE"
+            }).then((res) => {
+                alert('Removed successfully.')
+                window.location.reload();
+            }).catch((err) => {
+                console.log(err.message)
+            })
+        }
+    }
 
-  useEffect(() => {
-    fetch("http://localhost:8000/peminjaman")
-      .then((res) => {
-        return res.json();
-      })
-      .then((resp) => {
-        peminjamandatachange(resp);
-      })
-      .catch((err) => {
-        console.log(err.message);
-      });
-  }, []);
-  return (
-    <div className="row">
+
+
+
+    useEffect(() => {
+        fetch("http://localhost:8000/employee").then((res) => {
+            return res.json();
+        }).then((resp) => {
+            empdatachange(resp);
+        }).catch((err) => {
+            console.log(err.message);
+        })
+    }, [])
+    return (
+        <div className="row">
       <div className="col-12 col-lg-12 col-xxl-12 d-flex">
         <div className="card flex-fill">
           <div className="card-header">
-            <h5 className="card-title mb-0">List Peminjaman</h5>
+            <h5 className="card-title mb-0">List Employee</h5>
           </div>
           <div className="card-body">
             <div className="mb-3">
-              <Link to="/peminjaman/create" className="btn btn-success">
+              <Link to="/employee/create" className="btn btn-success">
                 +
               </Link>
             </div>
@@ -55,21 +53,23 @@ const PeminjamanListing = () => {
           <table className="table table-hover my-0">
             <thead>
               <tr>
-              <th>ID Peminjaman</th>
-                <th>Nama Peminjam</th>
-                <th className="d-none d-xl-table-cell">Barang yang Dipinjam</th>
-                <th className="d-none d-xl-table-cell">Total Harga</th>
+              <th>ID Employee</th>
+                <th>Nama Karyawan</th>
+                <th>Email</th>
+                <th>Telepon</th>
+                <th>Jabatan</th>
                 <th>Action</th>
               </tr>
             </thead>
             <tbody>
-              {peminjamandata &&
-                peminjamandata.map((item) => (
+              {empdata &&
+                empdata.map((item) => (
                   <tr key={item.id}>
                     <td>{item.id}</td>
                     <td>{item.name}</td>
-                    <td>{item.product}</td>
-                    <td>Rp. {item.total}</td>
+                    <td>{item.email}</td>
+                    <td>{item.telepon}</td>
+                    <td>{item.jabatan}</td>
                     <td>
                       <a
                         onClick={() => {
@@ -103,7 +103,7 @@ const PeminjamanListing = () => {
         </div>
       </div>
     </div>
-  );
-};
+    );
+}
 
-export default PeminjamanListing;
+export default EmpListing;

@@ -23,10 +23,10 @@
       "harga": "30000"
     },
     {
+      "id": 2,
       "name": "Kompor",
       "kategori": "Masak",
-      "harga": "8000",
-      "id": 2
+      "harga": "15000"
     }
   ],
   "member": [

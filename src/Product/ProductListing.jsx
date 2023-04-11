@@ -57,8 +57,8 @@ const ProductListing = () => {
               <tr>
               <th>ID Produk</th>
                 <th>Nama Produk</th>
-                <th className="d-none d-xl-table-cell">Kategori</th>
-                <th className="d-none d-xl-table-cell">Harga</th>
+                <th>Kategori</th>
+                <th>Harga</th>
                 <th>Action</th>
               </tr>
             </thead>

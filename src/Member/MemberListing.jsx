@@ -55,9 +55,9 @@ const MemberListing = () => {
               <tr>
               <th>ID Member</th>
                 <th>Nama Member</th>
-                <th className="d-none d-xl-table-cell">Alamat</th>
-                <th className="d-none d-xl-table-cell">Telepon</th>
-                <th className="d-none d-xl-table-cell">Usia</th>
+                <th>Alamat</th>
+                <th>Telepon</th>
+                <th>Usia</th>
                 <th>Action</th>
               </tr>
             </thead>
@@ -69,7 +69,7 @@ const MemberListing = () => {
                     <td>{item.name}</td>
                     <td>{item.alamat}</td>
                     <td>{item.telepon}</td>
-                    <td>{item.usia}</td>
+                    <td>{item.usia} tahun</td>
                     <td>
                       <a
                         onClick={() => {
