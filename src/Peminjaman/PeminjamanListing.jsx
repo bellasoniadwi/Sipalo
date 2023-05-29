@@ -1,105 +1,127 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { db } from "../firebase-config";
+import { collection, getDocs, addDoc, doc, deleteDoc } from "firebase/firestore";
 
 const PeminjamanListing = () => {
-  const [peminjamandata, peminjamandatachange] = useState(null);
-  const navigate = useNavigate();
+  const [newName, setNewName] = useState("");
+  const [newProduct, setNewProduct] = useState("");
+  const [newTotal, setNewTotal] = useState(0);
 
-  const LoadDetail = (id) => {
-    navigate("/peminjaman/detail/" + id);
+  const [peminjaman, setPeminjaman] = useState([]);
+  const peminjamanCollectionRef = collection(db, "transaction");
+
+  const createPeminjaman = async () => {
+    await addDoc(peminjamanCollectionRef, {
+      name: newName,
+      product: newProduct,
+      total: newTotal,
+    });
   };
-  const LoadEdit = (id) => {
-    navigate("/peminjaman/edit/" + id);
-  };
-  const Removefunction = (id) => {
-    if (window.confirm("Do you want to remove?")) {
-      fetch("http://localhost:8000/peminjaman/" + id, {
-        method: "DELETE",
-      })
-        .then((res) => {
-          alert("Removed successfully.");
-          window.location.reload();
-        })
-        .catch((err) => {
-          console.log(err.message);
-        });
-    }
-  };
+
+  const deletePeminjaman = async(id) => {
+    const pemDoc = doc(db, "transaction", id);
+    await deleteDoc(pemDoc);
+  }
 
   useEffect(() => {
-    fetch("http://localhost:8000/peminjaman")
-      .then((res) => {
-        return res.json();
-      })
-      .then((resp) => {
-        peminjamandatachange(resp);
-      })
-      .catch((err) => {
-        console.log(err.message);
-      });
+    const getPeminjaman = async () => {
+      const data = await getDocs(peminjamanCollectionRef);
+      setPeminjaman(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+    };
+
+    getPeminjaman();
   }, []);
+
   return (
     <div className="row">
       <div className="col-12 col-lg-12 col-xxl-12 d-flex">
-        <div className="card flex-fill">
+        {/* <form className="container"> */}
+        <div class="col-xs-6 col-md-9">
+        <div className="card">
+        <div className="container">
           <div className="card-header">
             <h5 className="card-title mb-0">List Peminjaman</h5>
           </div>
           <div className="card-body">
             <div className="mb-3">
-              <Link to="/peminjaman/create" className="btn btn-success">
+              {/* <Link to="/employee/create" className="btn btn-success">
                 +
-              </Link>
+              </Link> */}
             </div>
           </div>
           <table className="table table-hover my-0">
             <thead>
               <tr>
-              <th>ID Peminjaman</th>
                 <th>Nama Peminjam</th>
                 <th>Barang yang Dipinjam</th>
-                <th>Total Harga</th>
+                <th>Total</th>
                 <th>Action</th>
               </tr>
             </thead>
             <tbody>
-              {peminjamandata &&
-                peminjamandata.map((item) => (
-                  <tr key={item.id}>
-                    <td>{item.id}</td>
-                    <td>{item.name}</td>
-                    <td>{item.product}</td>
-                    <td>Rp. {item.total}</td>
+              {peminjaman.map((trans) => {
+                return (
+                  <tr>
+                    <td>{trans.name}</td>
+                    <td>{trans.product}</td>
+                    <td>{trans.total}</td>
                     <td>
-                      <a
-                        onClick={() => {
-                          LoadEdit(item.id);
-                        }}
-                        className="btn btn-warning"
-                      >
-                        Edit
-                      </a>
-                      <a
-                        onClick={() => {
-                          Removefunction(item.id);
-                        }}
-                        className="btn btn-danger"
-                      >
-                        Remove
-                      </a>
-                      <a
-                        onClick={() => {
-                          LoadDetail(item.id);
-                        }}
-                        className="btn btn-primary"
-                      >
-                        Details
-                      </a>
+                      <button className="btn btn-danger" onClick={() => {deletePeminjaman(trans.id)}}>Delete</button>
                     </td>
                   </tr>
-                ))}
+                );
+              })}
             </tbody>
           </table>
+        </div>
+        </div>
+        </div>
+        {/* </form> */}
+        <div class="col-xs-6 col-md-3">
+        <div className="card">
+            <div className="card-header">
+              <h5 className="card-title mb-0">Create Peminjaman</h5>
+            </div>
+            <div className="card-body">
+              <label>Name</label>
+              <input
+                className="form-control"
+                onChange={(event) => {
+                  setNewName(event.target.value);
+                }}
+              ></input>
+            </div>
+            <div className="card-body">
+              <label>Barang yang Dipinjam</label>
+              <input
+                className="form-control"
+                onChange={(event) => {
+                  setNewProduct(event.target.value);
+                }}
+              ></input>
+            </div>
+            <div className="card-body">
+              <label>Harga</label>
+              <input
+                className="form-control"
+                onChange={(event) => {
+                  setNewTotal(event.target.value);
+                }}
+              ></input>
+            </div>
+            <div className="card-body">
+              <div className="text-center mb-3">
+                <button className="btn btn-success" onClick={createPeminjaman}>
+                  Save
+                </button>
+                <Link to="/peminjaman" className="btn btn-danger">
+                  Back
+                </Link>
+              </div>
+            </div>
+          </div>
+        
         </div>
       </div>
     </div>
