@@ -1,105 +1,127 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { db } from "../firebase-config";
+import { collection, getDocs, addDoc, doc, deleteDoc } from "firebase/firestore";
 
 const ProductListing = () => {
-  const [productdata, productdatachange] = useState(null);
-  const navigate = useNavigate();
+  const [newName, setNewName] = useState("");
+  const [newKategori, setNewKategori] = useState("");
+  const [newHarga, setNewHarga] = useState(0);
 
-  const LoadDetail = (id) => {
-    navigate("/product/detail/" + id);
+  const [product, setProduct] = useState([]);
+  const productCollectionRef = collection(db, "product");
+
+  const createProduct = async () => {
+    await addDoc(productCollectionRef, {
+      name: newName,
+      kategori: newKategori,
+      harga: newHarga,
+    });
   };
-  const LoadEdit = (id) => {
-    navigate("/product/edit/" + id);
-  };
-  const Removefunction = (id) => {
-    if (window.confirm("Do you want to remove?")) {
-      fetch("http://localhost:8000/product/" + id, {
-        method: "DELETE",
-      })
-        .then((res) => {
-          alert("Removed successfully.");
-          window.location.reload();
-        })
-        .catch((err) => {
-          console.log(err.message);
-        });
-    }
-  };
+
+  const deleteProduct = async(id) => {
+    const prodDoc = doc(db, "product", id);
+    await deleteDoc(prodDoc);
+  }
 
   useEffect(() => {
-    fetch("http://localhost:8000/product")
-      .then((res) => {
-        return res.json();
-      })
-      .then((resp) => {
-        productdatachange(resp);
-      })
-      .catch((err) => {
-        console.log(err.message);
-      });
+    const getProduct = async () => {
+      const data = await getDocs(productCollectionRef);
+      setProduct(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+    };
+
+    getProduct();
   }, []);
+
   return (
     <div className="row">
       <div className="col-12 col-lg-12 col-xxl-12 d-flex">
-        <div className="card flex-fill">
+        {/* <form className="container"> */}
+        <div class="col-xs-6 col-md-9">
+        <div className="card">
+        <div className="container">
           <div className="card-header">
             <h5 className="card-title mb-0">List Product</h5>
           </div>
           <div className="card-body">
             <div className="mb-3">
-              <Link to="/product/create" className="btn btn-success">
+              {/* <Link to="/employee/create" className="btn btn-success">
                 +
-              </Link>
+              </Link> */}
             </div>
           </div>
           <table className="table table-hover my-0">
             <thead>
               <tr>
-              <th>ID Produk</th>
-                <th>Nama Produk</th>
+                <th>Nama Product</th>
                 <th>Kategori</th>
                 <th>Harga</th>
                 <th>Action</th>
               </tr>
             </thead>
             <tbody>
-              {productdata &&
-                productdata.map((item) => (
-                  <tr key={item.id}>
-                    <td>{item.id}</td>
-                    <td>{item.name}</td>
-                    <td>{item.kategori}</td>
-                    <td>Rp. {item.harga}</td>
+              {product.map((prod) => {
+                return (
+                  <tr>
+                    <td>{prod.name}</td>
+                    <td>{prod.kategori}</td>
+                    <td>{prod.harga}</td>
                     <td>
-                      <a
-                        onClick={() => {
-                          LoadEdit(item.id);
-                        }}
-                        className="btn btn-warning"
-                      >
-                        Edit
-                      </a>
-                      <a
-                        onClick={() => {
-                          Removefunction(item.id);
-                        }}
-                        className="btn btn-danger"
-                      >
-                        Remove
-                      </a>
-                      <a
-                        onClick={() => {
-                          LoadDetail(item.id);
-                        }}
-                        className="btn btn-primary"
-                      >
-                        Details
-                      </a>
+                      <button className="btn btn-danger" onClick={() => {deleteProduct(prod.id)}}>Delete</button>
                     </td>
                   </tr>
-                ))}
+                );
+              })}
             </tbody>
           </table>
+        </div>
+        </div>
+        </div>
+        {/* </form> */}
+        <div class="col-xs-6 col-md-3">
+        <div className="card">
+            <div className="card-header">
+              <h5 className="card-title mb-0">Create Product</h5>
+            </div>
+            <div className="card-body">
+              <label>Name</label>
+              <input
+                className="form-control"
+                onChange={(event) => {
+                  setNewName(event.target.value);
+                }}
+              ></input>
+            </div>
+            <div className="card-body">
+              <label>Kategori</label>
+              <input
+                className="form-control"
+                onChange={(event) => {
+                  setNewKategori(event.target.value);
+                }}
+              ></input>
+            </div>
+            <div className="card-body">
+              <label>Harga</label>
+              <input
+                className="form-control"
+                onChange={(event) => {
+                  setNewHarga(event.target.value);
+                }}
+              ></input>
+            </div>
+            <div className="card-body">
+              <div className="text-center mb-3">
+                <button className="btn btn-success" onClick={createProduct}>
+                  Save
+                </button>
+                <Link to="/product" className="btn btn-danger">
+                  Back
+                </Link>
+              </div>
+            </div>
+          </div>
+        
         </div>
       </div>
     </div>

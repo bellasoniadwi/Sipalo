@@ -47,9 +47,9 @@ const EmpListing = () => {
           </div>
           <div className="card-body">
             <div className="mb-3">
-              <Link to="/employee/create" className="btn btn-success">
+              {/* <Link to="/employee/create" className="btn btn-success">
                 +
-              </Link>
+              </Link> */}
             </div>
           </div>
           <table className="table table-hover my-0">
